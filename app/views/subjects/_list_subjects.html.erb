@@ -1,0 +1,26 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<% if params[:user_id] %>
+  <h2>Danh sách môn học đảm nhiệm</h2>
+<% else %>
+  <h2>Danh sách môn học</h2>
+<% end %>
+
+<% if @subjects.any? %>
+  <table class="table table-striped">
+    <tr>
+      <th style="width: 100px"><div class="col-md-12">Mã HP</div></th>
+      <th><div class="col-md-12"><%= sortable "name", "Tên môn học" %></div></th>
+      <th style="width: 40px"><div class="col-md-12">TC</div></th>
+      <th style="width: 90px">Số giờ LT</th>
+      <th style="width: 90px">Số giờ BT</th>
+      <th style="width: 80px"><div class="col-md-12">Kiểu</div></th>
+    </tr>
+    <%= render @subjects %>
+  </table>
+
+  <%= will_paginate @subjects %>
+<% else %>
+  <h3 style="center">Không có môn học nào trong hệ thống</h3>
+<% end %>

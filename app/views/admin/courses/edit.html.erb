@@ -1,0 +1,12 @@
+<% provide :title, "Edit class" %>
+
+<% if user_signed_in? %>
+  <% content_for :left_info do %>
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+  <% end %>
+<% end %>
+
+<h1>Chỉnh sửa thông tin mở lớp</h1>
+<%= render 'form' %>

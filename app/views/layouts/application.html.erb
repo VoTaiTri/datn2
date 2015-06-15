@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DatnOfficial</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title><%= full_title yield(:title) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'shared/shim' %>
+  </head>
+  <body>
+    <%= render 'shared/header' %>
+    
+    <div class="main-container">
+      <%= render partial: "shared/flash_messages", flash: flash %>
 
-<%= yield %>
+      <div class="row">
+        <aside class="col-md-2">
+          <%= yield :left_info %>
+        </aside>
 
-</body>
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    
+    <%= render 'shared/footer' %>
+  </body>
 </html>

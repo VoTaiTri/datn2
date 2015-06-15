@@ -1,0 +1,33 @@
+<%= form_for [:admin, @subject] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="col-md-12 well">
+    
+    <%= f.label :subjectID, "Mã môn học" %>
+    <%= f.text_field :subjectID, placeholder: "ITxxxx", class: 'form-control' %><br/>
+  
+    <%= f.label :name, "Tên môn học" %>
+    <%= f.text_field :name, placeholder: "Nhập tên môn học", class: 'form-control' %><br/>
+  
+    <%= f.label :tc, "Số tín chỉ" %>
+    <%= f.number_field :tc, min: 0, class: 'number-chosse form-control' %><br/>
+
+    <div id="type-of-subject">
+      <%= f.label :species, "Kiểu lớp" %>
+      <%= f.select :species, options_for_select([['Lớp thường', 'normal'], ['Lớp thực hành', 'project']], @subject.species), {}, class: 'select-one form-control' %><br/>
+    </div>
+
+    <div class="normal_option">
+      <%= f.label :lt, "Số giờ lý thuyết" %>
+      <%= f.number_field :lt, min: 0, class: 'number-chosse form-control' %><br/>
+      
+    
+      <%= f.label :bt, "Số giờ bài tập" %>
+      <%= f.number_field :bt, min: 0, class: 'number-chosse form-control' %>
+    </div>
+  
+    <hr>
+    <div class="col-md-12">
+      <%= f.submit @button, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
