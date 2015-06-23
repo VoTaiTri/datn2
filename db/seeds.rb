@@ -1,10 +1,5 @@
 puts "Create admin"
-User.create!(name:  "VoTaiTri", email: "admin@crb.com", password: 123456, password_confirmation: 123456, role: "admin", degree: "Ths")
-
-puts "Create 15 user"
-15.times do
-  User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: 123456, password_confirmation: 123456, degree: "Ths")
-end
+User.create!(name: "VoTaiTri", email: "admin@crb.com", password: 123456, password_confirmation: 123456, role: "admin", degree: "Ths")
 
 puts "Create 5 subject"
 Subject.create!(name: "Co so tri thuc", tc: 3, lt: 45, bt: 15, subjectID: "IT3010", species: "normal")
@@ -15,3 +10,8 @@ Subject.create!(name: "Project 2", tc: 3, subjectID: "IT4110", species: "project
 
 puts "Crate currently term"
 Term.create!(current: 20142)
+
+# puts "Create 15 user"
+# 10.times do |n|
+#   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: 123456, password_confirmation: 123456, degree: "Ths")
+# end
