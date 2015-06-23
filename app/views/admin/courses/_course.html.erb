@@ -31,7 +31,7 @@
       <div class="division-spending">Chưa phân công</div>
     <% else %>
       <% unless course.user_confirm == "rejected" || course.user_id.blank? %>
-        <div><%= course.user.name %>
+        <div><%= course.user.degree + '. ' + course.user.name %>
       <% end %>
     <% end %>
   </td>

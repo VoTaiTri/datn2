@@ -67,3 +67,8 @@ group :development, :test do
   # seed
   gem 'faker', '1.4.2'
 end
+
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end

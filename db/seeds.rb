@@ -1,8 +1,8 @@
 puts "Create admin"
-User.create!(name:  "VoTaiTri", email: "admin@crb.com", password: 123456, password_confirmation: 123456, role: "admin", degree: "Ths")
+User.create!(name: "VoTaiTri", email: "admin@crb.com", password: 123456, password_confirmation: 123456, role: "admin", degree: "Ths")
 
 puts "Create 15 user"
-15.times do
+10.times do |n|
   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: 123456, password_confirmation: 123456, degree: "Ths")
 end
 
