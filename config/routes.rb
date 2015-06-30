@@ -8,11 +8,13 @@ Rails.application.routes.draw do
     resources :subjects ,except: :show
     resources :courses
     resources :terms
+    resources :students
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
     resources :subjects
     resources :courses
+    resources :students
   end
   
   resources :subjects, only: [:index, :show]

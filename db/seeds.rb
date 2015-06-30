@@ -11,7 +11,7 @@ Subject.create!(name: "Project 2", tc: 3, subjectID: "IT4110", species: "project
 puts "Crate currently term"
 Term.create!(current: 20142)
 
-# puts "Create 15 user"
-# 10.times do |n|
-#   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: 123456, password_confirmation: 123456, degree: "Ths")
-# end
+puts "Create 15 user"
+10.times do |n|
+  User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: 123456, password_confirmation: 123456, degree: "Ths")
+end

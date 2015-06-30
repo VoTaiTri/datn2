@@ -1,0 +1,7 @@
+<% if @students.any? %>
+  <% @students.each do |student| %>
+    <%= student.name %>
+  <% end %>
+<% else %>
+  Empty
+<% end %>
