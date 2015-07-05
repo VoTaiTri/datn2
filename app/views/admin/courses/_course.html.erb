@@ -20,10 +20,10 @@
     <% else %>
       <% if course.subject.species == "normal" %>
         <%= form_for [:admin, course], {method: :put, remote: true} do |f| %>
-          <%= f.hidden_field :division_state, value: 'ongoing' %>
-          <%= f.hidden_field :user_confirm, value: 'waiting' %>
-          <%= f.select :user_id, User.un_rejected(@rejected_user).teaching(course.subject.id).collect{|s| [s.name, s.id]}, {}, {class: 'select-one form-control'} %>
-          <%= f.submit "Phân công", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: 'btn btn-primary' %>
+          <%= f.hidden_field :division_state, value: "ongoing" %>
+          <%= f.hidden_field :user_confirm, value: "waiting" %>
+          <%= f.select :user_id, User.un_rejected(@rejected_user).teaching(course.subject.id).collect{|s| [s.name, s.id]}, {}, {class: "select-one form-control"} %>
+          <%= f.submit "Phân công", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: "btn btn-primary" %>
         <% end %>
       <% end %>
     <% end %>
@@ -34,7 +34,7 @@
         <div class="division-spending">Chưa phân công</div>
       <% else %>
         <% unless course.user_confirm == "rejected" || course.user_id.blank? %>
-          <div><%= course.user.degree + '. ' + course.user.name %>
+          <div><%= course.user.degree + ". " + course.user.name %>
         <% end %>
       <% end %>
     <% end %>
