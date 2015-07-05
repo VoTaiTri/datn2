@@ -9,16 +9,14 @@
     <%= f.select :subject_id, Subject.all.collect{|s| [s.name, s.id]}, {}, {class: 'select-one form-control'} %></br>
 
     <%= f.label :courseID, "Mã lớp học" %>
-    <%= f.text_field :courseID, class: 'form-control' %></br>
+    <%= f.text_field :courseID, class: 'form-control' %></br><hr>
 
+    <center><h3>Dành riêng lớp học thường</h3></center>
     <%= f.label :enroll, "Số lượng đăng ký" %>
     <%= f.number_field :enroll, min: 0, class: 'number-chosse form-control' %></br>
 
     <%= f.label :max_enroll, "Đăng ký tối đa" %>
     <%= f.number_field :max_enroll, min: 0, class: 'number-chosse form-control' %></br>
-
-    <%= f.label :note, "Ghi chú" %>
-    <%= f.text_field :note, class: 'form-control' %></br>
 
     <%= f.label "Thời khóa biểu" %>
     <%= f.fields_for :timetables do |builder| %>
@@ -28,6 +26,10 @@
     <p>
       <%= link_to_add_fields "Thêm buổi học trong tuần", f, :timetables %>
     </p>
+    <hr>
+
+    <%= f.label :note, "Ghi chú" %>
+    <%= f.text_field :note, class: 'form-control' %></br>
     <hr>
     <div class="col-md-4 col-md-offset-4">
       <%= f.submit @button, class: "btn btn-primary" %>
