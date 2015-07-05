@@ -40,15 +40,15 @@
               <% reject_by_user = course.user_rejected.to_s + course.user_id.to_s + "," %>
               <%= form_for [:admin, course], {method: :put, remote: true} do |f| %>
                 <%= f.hidden_field :user_id, value: course.user_id %>
-                <%= f.hidden_field :user_confirm, value: 'rejected' %>
+                <%= f.hidden_field :user_confirm, value: "rejected" %>
                 <%= f.hidden_field :user_rejected, value: reject_by_user %>
-                <%= f.submit "Phân công lại", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: 'btn btn-primary' %>
+                <%= f.submit "Phân công lại", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: "btn btn-primary" %>
               <% end %>
               <%= form_for [:admin, course], {method: :put, remote: true} do |f| %>
                 <%= f.hidden_field :user_id, value: course.user_id %>
-                <%= f.hidden_field :division_state, value: 'done' %>
-                <%= f.hidden_field :user_confirm, value: 'accepted' %>
-                <%= f.submit "Hoàn tất", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: 'btn btn-primary' %>
+                <%= f.hidden_field :division_state, value: "done" %>
+                <%= f.hidden_field :user_confirm, value: "accepted" %>
+                <%= f.submit "Hoàn tất", data: {confirm: "Bạn chắc chắn về việc phân công lớp học này?"}, class: "btn btn-primary" %>
               <% end %>
             </td>
           </tr>
@@ -61,22 +61,22 @@
       </div>
     <% end %> 
   <% else %>
-    <%= form_tag admin_courses_path, method: 'get', id: "courses_search" do %>
+    <%= form_tag admin_courses_path, method: "get", id: "courses_search" do %>
       <div class="col-md-8 well">
         <div class="col-md-2">
           <label>Tìm kiếm</label>
         </div>
         <div class="col-md-4">
-          <%= text_field_tag :search, params[:search], placeholder: 'Tìm kiếm bằng tên ...' ,class: 'form-control' %>
+          <%= text_field_tag :search, params[:search], placeholder: "Tìm kiếm bằng tên ..." ,class: "form-control" %>
         </div>
         <div class="col-md-2">
           <label>Học kỳ</label>
         </div>
         <div class="col-md-2">
-          <%= text_field_tag :term, params[:term], value: @term.current, class: 'form-control' %>
+          <%= text_field_tag :term, params[:term], value: @term.current, class: "form-control" %>
         </div>
         <div class="col-md-2">
-          <%= submit_tag "Tìm kiếm", class: 'btn btn-primary' %>
+          <%= submit_tag "Tìm kiếm", class: "btn btn-primary" %>
         </div>
       </div>
       <div class="col-md-4 well">
@@ -87,7 +87,7 @@
       </div>
     <% end %>
     <div class="col-md-12">
-      <div id="courses_div"><%= render 'list_courses' %></div>
+      <div id="courses_div"><%= render "list_courses" %></div>
     </div>
   <% end %>
 </div>
